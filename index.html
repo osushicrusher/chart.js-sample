@@ -2,9 +2,18 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="./src/styles.css">
     <title>グラフ</title>
   </head>
   <body>
+    <div id="header">
+      <div>
+        <input id="js-searchBar" type="text" />
+        <button id="js-searchBtn">検索</button>
+      </div>
+    <div>
+    <div id="js-first"></div>
+    <div id="js-second"></div>
     <div style="height: 100vh;">
       <h1>折れ線グラフ</h1>
       <canvas id="myLineChart"></canvas>

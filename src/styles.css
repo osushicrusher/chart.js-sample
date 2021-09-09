@@ -1,3 +1,19 @@
 body {
   font-family: sans-serif;
 }
+
+#header {
+  background-color: aquamarine;
+  height: 20vh;
+}
+
+#js-first {
+  background-color: yellow;
+  height: 80vh;
+}
+
+#js-second {
+  background-color: blue;
+  display: none;
+  height: 80vh;
+}
