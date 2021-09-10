@@ -1,0 +1,68 @@
+/* ボール箱 */
+.ball_box {
+  height: 100px;
+  margin: 20px;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+}
+/* 回転時間 */
+.ball {
+  transition: 1s;
+  position: absolute;
+}
+/* ぐるんと一週 */
+.ball:hover {
+  transform: rotateZ(360deg);
+}
+/* ボール赤部分 */
+.red {
+  width: 100px;
+  height: 50px;
+  position: absolute;
+  z-index: 11;
+  border-radius: 60px 60px 0 0;
+  background: linear-gradient(120deg, #ec6d71 10%, #e83929 60%, #9e3d3f);
+}
+/* ボール黒部分 */
+.center {
+  width: 100px;
+  height: 55px;
+  background-color: #383c3c;
+  position: absolute;
+  z-index: 10;
+  border-radius: 60px 60px 0 0;
+}
+/* ボール白部分 */
+.bottom {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  z-index: 1;
+  border-radius: 100%;
+  background: linear-gradient(120deg, #f7fcfe 10%, #f3f3f3 60%, #dddcd6);
+}
+/* 開閉スイッチ */
+.switch {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: #f3f3f3;
+  position: absolute;
+  z-index: 12;
+  border: solid 4px #383c3c;
+  margin: 45px 40px;
+}
+/* ハイライト */
+.highlight {
+  width: 20px;
+  height: 10px;
+  border-radius: 100%;
+  transform: rotate(-45deg);
+  background-color: hsla(0, 0%, 100%, 0.6);
+  box-shadow: 0 0 3px 2px hsla(0, 0%, 100%, 0.6);
+  position: absolute;
+  z-index: 13;
+  margin: 15px 10px;
+}
