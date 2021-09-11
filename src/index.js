@@ -13,6 +13,7 @@ const wrapper = document.getElementById("wrapper");
 const searchBar = document.getElementById("js-searchBar");
 const searchBtn = document.getElementById("js-searchBtn");
 const container0 = document.getElementById("container0");
+const ballBox = document.getElementById("ballBox");
 
 searchBtn.addEventListener("click", function (e) {
   e.preventDefault();
@@ -20,11 +21,20 @@ searchBtn.addEventListener("click", function (e) {
   const pokemon = POKEDEX.filter((p) => pokemonName === p.name.japanese)[0];
   const pokemonHTML = createPokemonHTML(pokemon);
   wrapper.innerHTML += pokemonHTML;
+
   const container1 = document.getElementById("container1");
+
+  const menu = document.getElementById("menu");
+  const modal = document.getElementById("modal");
+  menu.addEventListener("click", function () {
+    modal.classList.remove("d-none");
+    console.log(document.body);
+  });
+
   container0.classList.add("d-none");
+  ballBox.classList.add("d-none");
   container1.classList.remove("d-none");
   adjustImgName(pokemon.id);
-  console.log(pokemon);
 });
 
 /**
@@ -41,11 +51,8 @@ function createPokemonHTML(pokemon) {
         <div>name: ${pokemon.name.japanese}</div>
         <div>type: ${pokemon.type}</div>
       </div>
-      <div class="menus">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+      <div id="menu" class="menu">
+        強さを見る
       </div>
     </div>
     <div class="right">
@@ -54,8 +61,8 @@ function createPokemonHTML(pokemon) {
           src="./src/pokemon/img/${adjustImgName(pokemon.id)}.png"
           alt="Pokemon"
           class="product-img"
-          width="300px"
-          height="300px"
+          width="250px"
+          height="250px"
         />
       </div>
     </div>

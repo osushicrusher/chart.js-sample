@@ -8,9 +8,16 @@ body {
   font-family: sans-serif;
 }
 
+.searchBox {
+  background-color: salmon;
+  height: 10vh;
+  text-align: center;
+  line-height: 10vh;
+}
+
 .container1 {
   background-color: #11e95b;
-  height: 100vh;
+  height: 90vh;
   width: 100vw;
   display: flex;
 }
@@ -18,6 +25,40 @@ body {
 .left {
   background-color: #f3f3f3;
   width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.details {
+  background-color: blueviolet;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu {
+  background-color: green;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-wrapper {
+  background-color: slategray;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.modal-container {
 }
 
 .right {
