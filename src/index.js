@@ -9,62 +9,62 @@
 import { POKEDEX } from "./pokemon/pokedex.json";
 // import { POKEMON_TYPES } from "./pokemon/types.json";
 
+const wrapper = document.getElementById("wrapper");
 const searchBar = document.getElementById("js-searchBar");
 const searchBtn = document.getElementById("js-searchBtn");
 const container0 = document.getElementById("container0");
-const container1 = document.getElementById("container1");
 
 searchBtn.addEventListener("click", function (e) {
   e.preventDefault();
   const pokemonName = searchBar.value;
   const pokemon = POKEDEX.filter((p) => pokemonName === p.name.japanese)[0];
-  // const pokemonId = pokemon.id;
-  // const pokemonType = pokemon.type;
-  // const pokemonBase = pokemon.base;
+  const pokemonHTML = createPokemonHTML(pokemon);
+  wrapper.innerHTML += pokemonHTML;
+  const container1 = document.getElementById("container1");
   container0.classList.add("d-none");
   container1.classList.remove("d-none");
+  adjustImgName(pokemon.id);
+  console.log(pokemon);
 });
 
 /**
  * ポケモン情報からHTMLを作る関数
  * @param  {Object} pokemon 検索バーから取得したポケモン情報
- * @return {div}
+ * @return {str}
  */
 function createPokemonHTML(pokemon) {
-  // const container = document.createElement("div");
-
-  // const header = document.createElement("header");
-
-  // const main = document.createElement("main");
-  // const imgDiv = document.createElement("div");
-  // const img = document.createElement("img");
-  // const menus = document.createElement("div");
-
-  // const footer = document.createElement("footer");
-
-  // imgDiv.appendChild(img);
-
-  // main.appendChild(imgDiv);
-  // main.appendChild(menus);
-
-  // container.appendChild(header);
-  // container.appendChild(main);
-  // container.appendChild(footer);
-
   const pokemonHTML = `
-  <div class="container">
-    <header class="header">
-
-    </header>
-    <main class="main">
-      <div class="imgDiv">
-        <img class="pokeImg"/>
+  <div id="container1" class="container1 d-none">
+    <div class="left">
+      <div class="details">
+        <div>id: ${pokemon.id}</div>
+        <div>name: ${pokemon.name.japanese}</div>
+        <div>type: ${pokemon.type}</div>
       </div>
-      <div class="menus"></div>
-    </main>
-    <footer class="footer">
-    
-    </footer>
-  </div>
+      <div class="menus">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="card">
+        <img
+          src="./src/pokemon/img/${adjustImgName(pokemon.id)}.png"
+          alt="Pokemon"
+          class="product-img"
+          width="300px"
+          height="300px"
+        />
+      </div>
+    </div>
+</div>
   `;
+
+  return pokemonHTML;
+}
+
+function adjustImgName(pokemonId) {
+  return ("000" + pokemonId).slice(-3);
 }
