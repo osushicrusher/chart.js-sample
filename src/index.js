@@ -72,6 +72,7 @@ function createPokemonHTML(pokemon) {
   return pokemonHTML;
 }
 
+// img用
 function adjustImgName(pokemonId) {
   return ("000" + pokemonId).slice(-3);
 }
